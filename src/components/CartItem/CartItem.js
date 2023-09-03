@@ -40,7 +40,7 @@ export const CartItem = ({ id, price, image, title, quantity }) => {
             </section>
 
             <section>
-                <button className="btn" onClick={() => removeItem(id)}>Eliminar</button>
+                <button className="btn btn-danger" onClick={() => removeItem(id)}>Eliminar</button>
             </section>
         </article>
     )
