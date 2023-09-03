@@ -6,7 +6,7 @@ const products = [
         category: 'Monitores',
         img: 'https://http2.mlstatic.com/D_NQ_NP_632603-MLA45730969968_042021-O.webp',
         stock: 10,
-        description: 'Monitor LG 19 Pulgadas'
+        description: ' MonitorLG 19 Pulgadas'
     },
     {
         id: '2',
