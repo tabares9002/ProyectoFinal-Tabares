@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const CheckoutForm = ({ onConfirm }) => {
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
 
     const handleConfirm = (event) => {
-    event.preventDefault();
-    const userData = {
-    name,
-    phone,
-    email,
-    };
+    event.preventDefault()
 
-    onConfirm(userData);
-    };
+    const userData = {
+    name, phone, email
+    }
+
+    onConfirm(userData)
+    }
 
     return (
     <div className="Container">
@@ -50,7 +49,7 @@ const CheckoutForm = ({ onConfirm }) => {
         </div>
         </form>
     </div>
-    );
-};
+    )
+}
 
-export default CheckoutForm;
+export default CheckoutForm

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { db } from "../../services/fireBase/firebaseConfig";
-import CheckoutForm from "../CheckoutFrom/Checkoutfrom";
+import CheckoutForm from "../CheckoutForm/Checkoutform";
 
 import {
     collection,
@@ -21,6 +21,7 @@ const Checkout = () => {
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
+        
         try {
             const objOrder = {
                 buyer: {
