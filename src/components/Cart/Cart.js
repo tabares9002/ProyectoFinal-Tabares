@@ -1,27 +1,49 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import CartItem from "../CartItem/CartItem";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import CartContext from '../context/CartContext';
 
-const Cart = () => {
-    const { cart, clearCart, totalQuantity, total } = useContext(CartContext)
+export const CartItem = ({ id, price, image, title, quantity }) => {
+    const { removeItem, total } = useContext(CartContext)
 
-    if(totalQuantity === 0) {
-        return (
-            <div>
-                <h1>No hay items en el carrito</h1>
-                <Link to='/' className='Option'>Productos</Link>
-            </div>
-        )
-    }
-    return(
-        <div>
-            { cart.map(p => <CartItem key={p.id} {...p}/>) }
-            <h3 className="Total">Total: ${total}</h3>
-            <button onClick={() => clearCart()} className="Button">Limpiar Carrito</button>
-            <Link to='/checkout' className="Option">Checkout</Link>
-        </div>
+    return (
+        <article className="CartItem">
+            <header className="Header">
+                <h2 className="ItemHeader">
+                    { title }
+                </h2>
+            </header>
+
+            <picture>
+                <img src={image} alt="{description}" className="ItemImg"/>
+            </picture>
+            <section>
+                <h3 className="InfoCart">
+                    precio: ${price}
+                </h3>
+            </section>
+
+            <section>
+                <h4 className="InfoCart">
+                    Cantidad: {quantity}
+                </h4>
+            </section>
+
+            <section>
+                <h4 className="InfoCart">
+                    Subtotal: ${price * quantity}
+                </h4>
+            </section>
+
+            <section>
+                <h3 className="InfoCart">
+                    Total a pagar: ${total}
+                </h3>
+            </section>
+
+            <section>
+                <button className="btn btn-danger" onClick={() => removeItem(id)}>Eliminar</button>
+            </section>
+        </article>
     )
 }
 
-export default Cart
+export default CartItem
